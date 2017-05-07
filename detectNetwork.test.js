@@ -23,8 +23,8 @@ describe('Introduction to Mocha Tests - READ ME FIRST', function() {
 
   it('Doesn\'t throw an error, so it doesn\'t fail', function() {
     // This test doesn't really test anything at all! It will pass no matter what.
-    var even = function(num){
-      return num/2 === 0;
+    var even = function(num) {
+      return num / 2 === 0;
     };
     return even(10) === true;
   });
@@ -32,11 +32,11 @@ describe('Introduction to Mocha Tests - READ ME FIRST', function() {
   // In tests, we want to compare the expected behavior to the actual behavior.
   // A test should only fail if the expected behavior doesn't match the actual.
   it('Throws an error when expected behavior does not match actual behavior', function() {
-    var even = function(num){
+    var even = function(num) {
       return num % 2 === 0;
     };
 
-    if(even(10) !== true) {
+    if (even(10) !== true) {
       throw new Error('10 should be even!');
     }
   });
@@ -63,7 +63,7 @@ describe('American Express', function() {
   // It can get annoying to keep typing the if/throw, so here is a
   // helper function to throw an error if the input statement isn't true.
   var assert = function(isTrue) {
-    if(!isTrue) {
+    if (!isTrue) {
       throw new Error('Test failed');
     }
 
@@ -158,8 +158,9 @@ describe('Discover', function() {
 
   for (var prefix = 644; prefix <= 649; prefix++) {
     (function(prefix) {
-      it('has a prefix of ' + prefix + ' and a length of 16', function() {expect(detectNetwork(prefix + '4567890123456')).to.equal('Discover');
-    });
+      it('has a prefix of ' + prefix + ' and a length of 16', function() {
+        expect(detectNetwork(prefix + '4567890123456')).to.equal('Discover');
+      });
       it('has a prefix of ' + prefix + ' and a length of 19', function() {
         expect(detectNetwork(prefix + '4567890123456789')).to.equal('Discover');
       });
@@ -172,32 +173,38 @@ describe('Maestro', function() {
   var expect = chai.expect;
   for (var length = 12; length <= 19; length++) {
     (function(length) {
-      it('has a prefix of 5018 and a length of ' + length, function() {expect(detectNetwork('501812378901' + addZeros(length))).to.equal('Maestro');
+      it('has a prefix of 5018 and a length of ' + length, function() {
+        expect(detectNetwork('501812378901' + addZeros(length))).to.equal('Maestro');
       });
     })(length);
   }
   for (length = 12; length <= 19; length++) {
     (function(length) {
-      it('has a prefix of 5020 and a length of ' + length, function() {expect(detectNetwork('502012378901' + addZeros(length))).to.equal('Maestro');
+      it('has a prefix of 5020 and a length of ' + length, function() {
+        expect(detectNetwork('502012378901' + addZeros(length))).to.equal('Maestro');
       });
     })(length);
   }
   for (length = 12; length <= 19; length++) {
     (function(length) {
-      it('has a prefix of 5038 and a length of ' + length, function() {expect(detectNetwork('503812378901' + addZeros(length))).to.equal('Maestro');
+      it('has a prefix of 5038 and a length of ' + length, function() {
+        expect(detectNetwork('503812378901' + addZeros(length))).to.equal('Maestro');
       });
     })(length);
   }
   for (length = 12; length <= 19; length++) {
     (function(length) {
-      it('has a prefix of 6304 and a length of ' + length, function() {expect(detectNetwork('630412378901' + addZeros(length))).to.equal('Maestro');
+      it('has a prefix of 6304 and a length of ' + length, function() {
+        expect(detectNetwork('630412378901' + addZeros(length))).to.equal('Maestro');
       });
     })(length);
   }
+
   function addZeros(lengthNeeded) {
     return ('0').repeat(lengthNeeded - 12);
   }
 });
+
 describe('China UnionPay', function() {
   var expect = chai.expect;
   var prefixes = [624, 625, 626, 6282, 6283, 6284, 6285, 6286, 6287, 6288];
